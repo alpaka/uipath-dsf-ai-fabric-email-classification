@@ -3,7 +3,8 @@
   "description": "Try email classification with AI Fabric.\r\n",
   "main": "Main_AI_Fabric.xaml",
   "dependencies": {
-    "DSF": "[1.0.7-alpha.15]",
+    "DSF": "[1.0.7-alpha.18]",
+    "UiPath.Excel.Activities": "[2.8.0-preview]",
     "UiPath.Form.Activities": "[1.0.1]",
     "UiPath.MLServices.Activities": "[1.0.1]",
     "UiPath.System.Activities": "[20.2.0-preview]",
@@ -13,7 +14,7 @@
   "webServices": [],
   "schemaVersion": "4.0",
   "studioVersion": "19.8.0.83",
-  "projectVersion": "1.0.2-alpha.2",
+  "projectVersion": "1.0.2-alpha.4",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
