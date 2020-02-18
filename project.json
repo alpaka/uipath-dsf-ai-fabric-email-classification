@@ -1,0 +1,54 @@
+{
+  "name": "DSF_AI_Fabric_Email_Classification",
+  "description": "Try email classification with AI Fabric.\r\n",
+  "main": "Main_AI_Fabric.xaml",
+  "dependencies": {
+    "DSF": "[1.0.7-alpha.15]",
+    "UiPath.MLServices.Activities": "[1.0.1]",
+    "UiPath.System.Activities": "[20.2.0-preview]",
+    "UiPath.UIAutomation.Activities": "[20.2.0-preview]",
+    "UiPath.WebAPI.Activities": "[1.5.0-alpha.606820]"
+  },
+  "webServices": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "19.8.0.83",
+  "projectVersion": "1.0.1",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "isPausable": true,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "fileInfoCollection": []
+  },
+  "arguments": {
+    "input": [
+      {
+        "name": "confidenceThreshold",
+        "type": "System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "required": false,
+        "hasDefault": true
+      },
+      {
+        "name": "CLASSES",
+        "type": "System.String[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "required": false,
+        "hasDefault": true
+      }
+    ],
+    "output": []
+  },
+  "expressionLanguage": "VisualBasic"
+}
