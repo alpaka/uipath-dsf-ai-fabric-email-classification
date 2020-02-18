@@ -1,4 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Clean_Up_Emails" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="552,753" sap2010:WorkflowViewState.IdRef="Clean_Up_Emails_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Clean_Up_Emails" this:Clean_Up_Emails.CLASSES="[{&quot;Bank account or service&quot;, &quot;Consumer Loan&quot;, &quot;Credit card&quot;, &quot;Credit reporting&quot;, &quot;Debt collection&quot;, &quot;Money transfers&quot;, &quot;Mortgage&quot;, &quot;Other financial service&quot;,  &quot;Payday loan&quot;, &quot;Prepaid card&quot;,  &quot;Student loan&quot;}]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="CLASSES" Type="InArgument(s:String[])" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>550.222222222222,798.222222222222</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Clean_Up_Emails_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
       <x:String>System.Activities</x:String>
@@ -46,22 +54,19 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Clean_Up_Emails" sap:VirtualizedContainerService.HintSize="532,693" sap2010:WorkflowViewState.IdRef="Sequence_1">
-    <Sequence.Variables>
-      <Variable x:TypeArguments="s:String[]" Default="[{&quot;Credit reporting&quot;,&quot;Unclassified&quot;,&quot;Money transfers&quot;,&quot;Credit reporting, credit repair services, or other personal consumer reports&quot;,&quot;Vehicle loan or lease&quot;,&quot;Debt collection&quot;,&quot;Consumer Loan&quot;,&quot;Mortgage&quot;,&quot;Credit card&quot;}]" Name="list_subfolders" />
-    </Sequence.Variables>
+  <Sequence DisplayName="Clean_Up_Emails" sap:VirtualizedContainerService.HintSize="530.222222222222,698.222222222222" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="490,601" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[list_subfolders]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="488.444444444444,605.777777777778" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[CLASSES.Append(&quot;Unclassified&quot;)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="454,467" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="452.888888888889,470.222222222222" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="list_emails" />
             </Sequence.Variables>
@@ -70,20 +75,20 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:GetOutlookMailMessages Account="{x:Null}" Filter="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="412,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="[&quot;Inbox\AI Fabric Emails\&quot; + item]" MarkAsRead="False" Messages="[list_emails]" OnlyUnreadMessages="False" Top="100" />
-            <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412,313" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[list_emails]">
+            <ui:GetOutlookMailMessages Account="{x:Null}" Filter="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="411.111111111111,22.2222222222222" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="[&quot;Inbox\AI Fabric Emails\&quot; + item]" MarkAsRead="False" Messages="[list_emails]" OnlyUnreadMessages="False" Top="100" />
+            <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="411.111111111111,315.555555555556" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[list_emails]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="snm:MailMessage">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="item" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="375.555555555556,180" sap2010:WorkflowViewState.IdRef="Sequence_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_1" MailFolder="Inbox\AI Fabric Emails" MailMessage="[item]" />
+                    <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="333.777777777778,87.5555555555556" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_1" MailFolder="Inbox\AI Fabric Emails" MailMessage="[item]" />
                   </Sequence>
                 </ActivityAction>
               </ui:ForEach.Body>

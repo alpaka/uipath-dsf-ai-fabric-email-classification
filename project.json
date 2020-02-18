@@ -4,6 +4,7 @@
   "main": "Main_AI_Fabric.xaml",
   "dependencies": {
     "DSF": "[1.0.7-alpha.15]",
+    "UiPath.Form.Activities": "[1.0.1]",
     "UiPath.MLServices.Activities": "[1.0.1]",
     "UiPath.System.Activities": "[20.2.0-preview]",
     "UiPath.UIAutomation.Activities": "[20.2.0-preview]",
@@ -12,7 +13,7 @@
   "webServices": [],
   "schemaVersion": "4.0",
   "studioVersion": "19.8.0.83",
-  "projectVersion": "1.0.1",
+  "projectVersion": "1.0.2-alpha.2",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
@@ -46,6 +47,12 @@
         "type": "System.String[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
         "required": false,
         "hasDefault": true
+      },
+      {
+        "name": "Mode",
+        "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "required": false,
+        "hasDefault": false
       }
     ],
     "output": []
