@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1213.77777777778,981.333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1213.77777777778,1021.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="48">
@@ -87,7 +87,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID12</x:Reference>
+      <x:Reference>__ReferenceID13</x:Reference>
     </Flowchart.StartNode>
     <FlowStep x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="FlowStep_6">
       <sap:WorkflowViewStateService.ViewState>
@@ -104,7 +104,6 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.777777777778,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Getting mails&quot;]" />
-        <do:ShowOutlookMailFolder FolderPath="Inbox\AI Fabric Emails" sap:VirtualizedContainerService.HintSize="333.777777777778,22.2222222222222" sap2010:WorkflowViewState.IdRef="ShowOutlookMailFolder_1" />
         <ui:GetOutlookMailMessages Account="{x:Null}" Filter="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="333.777777777778,22.2222222222222" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Inbox\AI Fabric Emails" MarkAsRead="False" Messages="[list_emails]" OnlyUnreadMessages="False" Top="1" />
       </Sequence>
       <FlowStep.Next>
@@ -165,15 +164,18 @@
                   </Assign.Value>
                 </Assign>
                 <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="350.222222222222,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_11" Text="[emailBody]" />
-                <uma:MLSkills ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Name="{x:Null}" NumberOfRetries="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SelectedMLSkill="{x:Reference __ReferenceID0}" StatusCode="{x:Null}" TimeOutMs="{x:Null}" DisplayName="MLSkill" sap:VirtualizedContainerService.HintSize="350.222222222222,352.444444444444" sap2010:WorkflowViewState.IdRef="MLSkills_1" Item="[emailBody]" JsonResponse="[strResponse]" NextPageNum="2" RefreshList="False" TotalCount="4">
+                <uma:MLSkills ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Name="{x:Null}" NumberOfRetries="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" StatusCode="{x:Null}" TimeOutMs="{x:Null}" DisplayName="MLSkill" sap:VirtualizedContainerService.HintSize="350.222222222222,352.444444444444" sap2010:WorkflowViewState.IdRef="MLSkills_1" Item="[emailBody]" JsonResponse="[strResponse]" NextPageNum="2" RefreshList="False" TotalCount="4">
                   <uma:MLSkills.MLSkillList>
                     <scg:List x:TypeArguments="um:MLSkill" Capacity="4">
                       <um:MLSkill Id="{x:Null}" InputDescription="{x:Null}" OutputDescription="{x:Null}" AccessUri="https://aifabric-staging.uipath.com/mlskills/host/81925ecc-7bc4-4bef-9cea-5dec6d41b576/consumer-complaints-classifier" Description="" InputType="JSON" Name="Consumer Complaints Classifier" TenantId="81925ecc-7bc4-4bef-9cea-5dec6d41b576" />
                       <um:MLSkill Id="{x:Null}" AccessUri="https://aifabric-staging.uipath.com/mlskills/host/81925ecc-7bc4-4bef-9cea-5dec6d41b576/customer-churn" Description="Customer Churn Model" InputDescription="Input" InputType="JSON" Name="Customer Churn" OutputDescription="Output" TenantId="81925ecc-7bc4-4bef-9cea-5dec6d41b576" />
-                      <um:MLSkill Id="{x:Null}" x:Name="__ReferenceID0" AccessUri="https://aifabric-staging.uipath.com/mlskills/host/81925ecc-7bc4-4bef-9cea-5dec6d41b576/emailclassification" Description="This model classifies customer requests emails." InputDescription="Please provide the email body as input." InputType="JSON" Name="EmailClassification" OutputDescription="The output will be the index of the classification for the string array: &#xA;&#xA;{&quot;Bank account or service&quot;, &quot;Consumer Loan&quot;, &quot;Credit card&quot;, &quot;Credit reporting&quot;, &quot;Debt collection&quot;, &quot;Money transfers&quot;, &quot;Mortgage&quot;, &quot;Other financial service&quot;,  &quot;Payday loan&quot;, &quot;Prepaid card&quot;,  &quot;Student loan&quot;}&#xA;&#xA;Additionally, the output will contain the confidence." TenantId="81925ecc-7bc4-4bef-9cea-5dec6d41b576" />
+                      <x:Reference>__ReferenceID0</x:Reference>
                       <um:MLSkill Id="{x:Null}" AccessUri="https://aifabric-staging.uipath.com/mlskills/host/81925ecc-7bc4-4bef-9cea-5dec6d41b576/inventory-management" Description="" InputDescription="List of past 12 periods of sales. Example: “[1,2,3,4,5,6,7,8,9,10,11,12]”" InputType="JSON" Name="Inventory Management" OutputDescription="{}{“prediction”: &lt;Predicted Sales&gt; }" TenantId="81925ecc-7bc4-4bef-9cea-5dec6d41b576" />
                     </scg:List>
                   </uma:MLSkills.MLSkillList>
+                  <uma:MLSkills.SelectedMLSkill>
+                    <um:MLSkill Id="{x:Null}" x:Name="__ReferenceID0" AccessUri="https://aifabric-staging.uipath.com/mlskills/host/81925ecc-7bc4-4bef-9cea-5dec6d41b576/emailclassification" Description="This model classifies customer requests emails." InputDescription="Please provide the email body as input." InputType="JSON" Name="EmailClassification" OutputDescription="The output will be the index of the classification for the string array: &#xA;&#xA;{&quot;Bank account or service&quot;, &quot;Consumer Loan&quot;, &quot;Credit card&quot;, &quot;Credit reporting&quot;, &quot;Debt collection&quot;, &quot;Money transfers&quot;, &quot;Mortgage&quot;, &quot;Other financial service&quot;,  &quot;Payday loan&quot;, &quot;Prepaid card&quot;,  &quot;Student loan&quot;}&#xA;&#xA;Additionally, the output will contain the confidence." TenantId="81925ecc-7bc4-4bef-9cea-5dec6d41b576" />
+                  </uma:MLSkills.SelectedMLSkill>
                 </uma:MLSkills>
                 <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="350.222222222222,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_10" Text="[strResponse]" />
                 <ui:DeserializeJson x:TypeArguments="scg:Dictionary(x:String, x:Object)" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="350.222222222222,60.4444444444444" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_8" JsonObject="[jsonDict]" JsonString="[strResponse]" />
@@ -240,7 +242,7 @@
                           <av:PointCollection x:Key="ConnectorLocation">740,850 770,850 770,785.333333333333 952.888888888889,785.333333333333 952.888888888889,586.444444444445 756,586.444444444445 756,560 690,560</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Move to Unclassified Folder" sap:VirtualizedContainerService.HintSize="375.555555555556,180" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                      <Sequence DisplayName="Move to Unclassified Folder" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_19">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -327,18 +329,33 @@
     <x:Reference>__ReferenceID5</x:Reference>
     <x:Reference>__ReferenceID6</x:Reference>
     <x:Reference>__ReferenceID7</x:Reference>
-    <FlowDecision x:Name="__ReferenceID9" Condition="[Mode &lt;&gt; &quot;arm&quot;]" DisplayName="Run?" sap:VirtualizedContainerService.HintSize="70.2222222222222,87.1111111111111" sap2010:WorkflowViewState.IdRef="FlowDecision_4" True="{x:Reference __ReferenceID1}">
+    <FlowDecision x:Name="__ReferenceID9" Condition="[Mode &lt;&gt; &quot;arm&quot;]" DisplayName="Run?" sap:VirtualizedContainerService.HintSize="70.2222222222222,87.1111111111111" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <av:Point x:Key="ShapeLocation">714.888888888889,356.444444444444</av:Point>
           <av:Size x:Key="ShapeSize">70.2222222222222,87.1111111111111</av:Size>
-          <av:PointCollection x:Key="TrueConnector">714.888888888889,400 684.888888888889,400 684.888888888889,495.333333333333 590,495.333333333333 590,525.333333333333</av:PointCollection>
+          <av:PointCollection x:Key="TrueConnector">714.888888888889,400 590,400 590,458.888888888889</av:PointCollection>
           <av:PointCollection x:Key="FalseConnector">785.111111111111,400 930,400 930,445.333333333333</av:PointCollection>
           <x:String x:Key="FalseLabel">Only arm</x:String>
           <x:String x:Key="TrueLabel">Run</x:String>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
+      <FlowDecision.True>
+        <FlowStep x:Name="__ReferenceID12">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">490,458.888888888889</av:Point>
+              <av:Size x:Key="ShapeSize">200,22.2222222222222</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">590,481.111111111111 590,525.333333333333</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <do:ShowOutlookMailFolder FolderPath="Inbox\AI Fabric Emails" sap:VirtualizedContainerService.HintSize="200,22.2222222222222" sap2010:WorkflowViewState.IdRef="ShowOutlookMailFolder_2" />
+          <FlowStep.Next>
+            <x:Reference>__ReferenceID1</x:Reference>
+          </FlowStep.Next>
+        </FlowStep>
+      </FlowDecision.True>
       <FlowDecision.False>
         <FlowStep x:Name="__ReferenceID8">
           <sap:WorkflowViewStateService.ViewState>
@@ -442,7 +459,7 @@
         <x:Reference>__ReferenceID9</x:Reference>
       </FlowStep.Next>
     </FlowStep>
-    <FlowSwitch x:TypeArguments="x:String" Default="{x:Reference __ReferenceID11}" x:Name="__ReferenceID12" DisplayName="Mode Switch" Expression="[Mode]" sap:VirtualizedContainerService.HintSize="74.2222222222222,87.1111111111111" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_1">
+    <FlowSwitch x:TypeArguments="x:String" Default="{x:Reference __ReferenceID11}" x:Name="__ReferenceID13" DisplayName="Mode Switch" Expression="[Mode]" sap:VirtualizedContainerService.HintSize="74.2222222222222,87.1111111111111" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">572.888888888889,136.444444444444</av:Point>
@@ -455,5 +472,6 @@
       <x:Reference>__ReferenceID10<x:Key>disarm</x:Key></x:Reference>
       <x:Reference>__ReferenceID11<x:Key>arm</x:Key></x:Reference>
     </FlowSwitch>
+    <x:Reference>__ReferenceID12</x:Reference>
   </Flowchart>
 </Activity>
