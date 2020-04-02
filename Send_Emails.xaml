@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Send_Emails" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="487.111111111111,1134.22222222222" sap2010:WorkflowViewState.IdRef="Send_Emails_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:do="clr-namespace:DSF.Outlook;assembly=DSF" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Send_Emails" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="456.888888888889,1468.44444444444" sap2010:WorkflowViewState.IdRef="Send_Emails_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:do="clr-namespace:DSF.Outlook;assembly=DSF" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg1:List x:TypeArguments="x:String" Capacity="24">
       <x:String>System.Activities</x:String>
@@ -50,7 +50,7 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg1:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Send_Emails" sap:VirtualizedContainerService.HintSize="467.111111111111,1034.22222222222" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Send_Emails" sap:VirtualizedContainerService.HintSize="467.111111111111,1303.55555555556" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_emails" />
       <Variable x:TypeArguments="x:String" Name="email" />
@@ -101,6 +101,8 @@
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="425.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[String.Format(&quot;Waiting for {0} emails&quot;, Subjects.Count)]" />
     <do:WaitForMails sap:VirtualizedContainerService.HintSize="425.333333333333,22.2222222222222" sap2010:WorkflowViewState.IdRef="WaitForMails_1" PollingInterval="00:00:10" SubjectsToFind="[Subjects]" TargetFolderName="Inbox\AI Fabric Emails" Timeout="00:05:00" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="425.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Found all emails&quot;]" />
   </Sequence>
 </Activity>
