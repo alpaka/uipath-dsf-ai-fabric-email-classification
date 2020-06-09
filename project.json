@@ -4,17 +4,17 @@
   "main": "Main_AI_Fabric.xaml",
   "dependencies": {
     "DSF": "[1.1.2]",
-    "UiPath.Excel.Activities": "[2.8.0-preview]",
-    "UiPath.Form.Activities": "[1.0.1]",
-    "UiPath.MLServices.Activities": "[1.0.1]",
-    "UiPath.System.Activities": "[20.2.0-preview]",
-    "UiPath.UIAutomation.Activities": "[20.2.0-preview]",
+    "UiPath.Excel.Activities": "[2.8.5]",
+    "UiPath.Form.Activities": "[1.1.2]",
+    "UiPath.MLServices.Activities": "[1.1.1]",
+    "UiPath.System.Activities": "[20.4.0]",
+    "UiPath.UIAutomation.Activities": "[20.4.1]",
     "UiPath.WebAPI.Activities": "[1.5.0-alpha.606820]"
   },
   "webServices": [],
   "schemaVersion": "4.0",
   "studioVersion": "19.8.0.83",
-  "projectVersion": "1.0.2",
+  "projectVersion": "1.0.3",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
